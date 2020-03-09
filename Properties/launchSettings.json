@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "02_commands_framework": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "token": "NjQ0MTk5MDEyMzIwMjgwNTc2.XgrOHQ.JxkcC5yQitJ7f_Vmuf3tDUc207o"
+      }
+    }
+  }
+}
