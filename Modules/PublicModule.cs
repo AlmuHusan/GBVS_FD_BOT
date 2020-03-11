@@ -25,10 +25,10 @@ namespace GBVS_FD_BOT.Modules
 
 
         string[] moveList = {
-            "j.236c","j.236a","j.236b","j.214b","j.214a","j.214c",
-            "6p","4p","5p","236c","236c","214c","214c","214c","236c",
-            "236b+c","214b+c","222b+c","5a","5aa","5aaa","5aaaa","4a","5b","5bb",
-            "5bbb","5bbbb","5c","2c","c.L"
+            "c.L","c.M","c.H","f.L","f.M","f.H",
+            "2L","2M","2H","2U","U","214L","214M","214H","236L",
+            "236M","236H","623L","623L","623M","623H","M+H","L+U","236236H",
+            "236236U"
         };
 
         [Command("cat")]
@@ -84,15 +84,14 @@ namespace GBVS_FD_BOT.Modules
             else
             {
                 var builder = new EmbedBuilder();
-                var character = CharacterMoveService.FrameData["Gran"];
-                var characterMove = character["c.L"];
+                var character = CharacterMoveService.FrameData[charList[charName]];
+                var characterMove = character[move];
                 builder.WithTitle("Gran: "+characterMove.move);
                 builder.AddField("Damage", characterMove.damage, true);
                 builder.AddField("Guard", characterMove.guard, true);
                 builder.AddField("Startup", characterMove.startup, true);
                 builder.AddField("On Block", characterMove.onblock, true);
                 builder.AddField("On Hit", characterMove.onhit, true);
-                builder.AddField("OOGABOOGA", "-1 [+2] [[+7]]", true);
                 builder.WithThumbnailUrl("https://www.avatarys.com/var/resizes/Cool-Avatars/Cartoons-Avatars/Super-Mario-Avatar-500x500.jpg?m=1455129118");
 
                 builder.WithColor(Color.Red);
