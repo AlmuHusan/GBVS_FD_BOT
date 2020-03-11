@@ -3,21 +3,22 @@ using System.Threading.Tasks;
 using Discord;
 using System.Linq;
 using Discord.Commands;
-using _02_commands_framework.Services;
+using GBVS_FD_BOT.Services;
 using System.Collections.Generic;
 
-namespace _02_commands_framework.Modules
+namespace GBVS_FD_BOT.Modules
 {
     // Modules must be public and inherit from an IModuleBase
     public class PublicModule : ModuleBase<SocketCommandContext>
     {
         // Dependency Injection will fill this value in for us
         public PictureService PictureService { get; set; }
+        public CharacterMoveService CharacterMoveService { get; set; }
         Dictionary<string, string> charList = new Dictionary<string, string>(){
 
-            { "ragna","Ragna_the_Bloodedge" },
-            { "susan","Susanoo" },
-            { "jin","Jin_Kisaragi" },
+            { "gran","Gran" },
+            { "ferry","Ferry" },
+            { "katalina","Katalina" },
         };
 
 
@@ -27,7 +28,7 @@ namespace _02_commands_framework.Modules
             "j.236c","j.236a","j.236b","j.214b","j.214a","j.214c",
             "6p","4p","5p","236c","236c","214c","214c","214c","236c",
             "236b+c","214b+c","222b+c","5a","5aa","5aaa","5aaaa","4a","5b","5bb",
-            "5bbb","5bbbb","5c","2c"
+            "5bbb","5bbbb","5c","2c","c.L"
         };
 
         [Command("cat")]
@@ -83,15 +84,15 @@ namespace _02_commands_framework.Modules
             else
             {
                 var builder = new EmbedBuilder();
-                builder.WithTitle(charList[charName]+": "+move);
-                builder.AddField("Cost", "3",true);
-                builder.AddField("HP", "665",true);
-                builder.AddField("DPS", "42",true);
-                builder.AddField("Hit Speed", "1.5sec",true);
-                builder.AddField("SlowDown", "35%",true);
-                builder.AddField("AOE", "63",true);
-                builder.AddField("Hitstun", "23", true);
-                builder.AddField("Invul", "-");
+                var character = CharacterMoveService.FrameData["Gran"];
+                var characterMove = character["c.L"];
+                builder.WithTitle("Gran: "+characterMove.move);
+                builder.AddField("Damage", characterMove.damage, true);
+                builder.AddField("Guard", characterMove.guard, true);
+                builder.AddField("Startup", characterMove.startup, true);
+                builder.AddField("On Block", characterMove.onblock, true);
+                builder.AddField("On Hit", characterMove.onhit, true);
+                builder.AddField("OOGABOOGA", "-1 [+2] [[+7]]", true);
                 builder.WithThumbnailUrl("https://www.avatarys.com/var/resizes/Cool-Avatars/Cartoons-Avatars/Super-Mario-Avatar-500x500.jpg?m=1455129118");
 
                 builder.WithColor(Color.Red);

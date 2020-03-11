@@ -5,9 +5,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Discord;
 using Discord.WebSocket;
 using Discord.Commands;
-using _02_commands_framework.Services;
+using GBVS_FD_BOT.Services;
 
-namespace _02_commands_framework
+namespace GBVS_FD_BOT
 {
     // This is a minimal example of using Discord.Net's command
     // framework - by no means does it show everything the framework
@@ -62,6 +62,7 @@ namespace _02_commands_framework
                 .AddSingleton<DiscordSocketClient>()
                 .AddSingleton<CommandService>()
                 .AddSingleton<CommandHandlingService>()
+                .AddSingleton<CharacterMoveService>()
                 .AddSingleton<HttpClient>()
                 .AddSingleton<PictureService>()
                 .BuildServiceProvider();

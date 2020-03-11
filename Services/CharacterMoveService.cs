@@ -1,16 +1,16 @@
-﻿using _02_commands_framework.Modules;
+﻿using GBVS_FD_BOT.Modules;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace _02_commands_framework.Services
+namespace GBVS_FD_BOT.Services
 {
-    class CharacterMoveService
+    public class CharacterMoveService
     {
         string dataDirectory = "../../CharacterMoveData";
-        Dictionary<String, Dictionary<String,CharacterMove>> FrameData = new Dictionary<String, Dictionary<String, CharacterMove>>();
+        public Dictionary<String, Dictionary<String,CharacterMove>> FrameData = new Dictionary<String, Dictionary<String, CharacterMove>>();
         public CharacterMoveService()
         {
             foreach (string filePath in Directory.GetFiles(dataDirectory, "*.json"))
@@ -29,11 +29,11 @@ namespace _02_commands_framework.Services
                 }
                 
             }
-            foreach (var item in FrameData.Keys)
-            {
-                var character = FrameData[item];
-                Console.WriteLine(character["5A"].startup);
-            }
+            //foreach (var item in FrameData.Keys)
+            //{
+            //    var character = FrameData[item];
+            //    Console.WriteLine(character["5A"].startup);
+            //}
 
         }
     }

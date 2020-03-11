@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.Json.Serialization;
 
-namespace _02_commands_framework.Modules
+namespace GBVS_FD_BOT.Modules
 {
-    class CharacterMove
+    public class CharacterMove
     {
 
         [JsonPropertyName("move")]
         public string move { get; set; }
 
-        [JsonPropertyName("attribute")]
-        public string attribute { get; set; }
+        [JsonPropertyName("damage")]
+        public string damage { get; set; }
 
         [JsonPropertyName("guard")]
         public string guard { get; set; }
@@ -26,8 +26,14 @@ namespace _02_commands_framework.Modules
         [JsonPropertyName("recovery")]
         public string recovery { get; set; }
 
-        [JsonPropertyName("franeAdv")]
-        public string frameAdv { get; set; }
+        [JsonPropertyName("onblock")]
+        public string onblock { get; set; }
+
+        [JsonPropertyName("onhit")]
+        public string onhit { get; set; }
+
+        [JsonPropertyName("level")]
+        public string level { get; set; }
 
         [JsonPropertyName("blockstun")]
         public string blockstun { get; set; }

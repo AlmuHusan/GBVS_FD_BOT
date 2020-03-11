@@ -6,7 +6,7 @@ using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
 
-namespace _02_commands_framework.Services
+namespace GBVS_FD_BOT.Services
 {
     public class CommandHandlingService
     {
