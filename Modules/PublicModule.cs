@@ -13,7 +13,10 @@ namespace GBVS_FD_BOT.Modules
     {
         // Dependency Injection will fill this value in for us
         public PictureService PictureService { get; set; }
-        public CharacterMoveService CharacterMoveService { get; set; }
+        public FameDataService FrameDataService { get; set; }
+
+        public MoveListService MoveListService { get; set; }
+
         Dictionary<string, string> charList = new Dictionary<string, string>(){
 
             { "gran","Gran" },
@@ -56,18 +59,24 @@ namespace GBVS_FD_BOT.Modules
         }
 
         [Command("movelist")]
-        public async Task MoveListAsync()
+        public async Task MoveListAsync(string charName)
         {
-            new CharacterMoveService();
-            var list = "";
-            foreach (var k in moveList)
+            if (charList.Keys.Contains(charName.ToLower()))
             {
-                list += k + "\n";
+                var list = "";
+                foreach (var k in moveList)
+                {
+                    list += k + ", ";
+                }
+                var builder = new EmbedBuilder();
+                builder.WithTitle(charName + "'s movelist:");
+                builder.Description = list;
+                await Context.Channel.SendMessageAsync("", false, builder.Build());
             }
-            var builder = new EmbedBuilder();
-            builder.WithTitle("List of available moves");
-            builder.Description = list;
-            await Context.Channel.SendMessageAsync("", false, builder.Build());
+            else
+            {
+                await Context.Channel.SendMessageAsync($"Error bad input!");
+            }
         }
 
         [Command("fd")]
@@ -84,7 +93,7 @@ namespace GBVS_FD_BOT.Modules
             else
             {
                 var builder = new EmbedBuilder();
-                var character = CharacterMoveService.FrameData[charList[charName]];
+                var character = FrameDataService.FrameData[charList[charName]];
                 var characterMove = character[move];
                 builder.WithTitle("Gran: "+characterMove.move);
                 builder.AddField("Damage", characterMove.damage, true);

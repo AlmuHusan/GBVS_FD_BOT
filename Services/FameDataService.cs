@@ -7,21 +7,21 @@ using System.Text;
 
 namespace GBVS_FD_BOT.Services
 {
-    public class CharacterMoveService
+    public class FameDataService
     {
-        string dataDirectory = "../../CharacterMoveData";
-        public Dictionary<String, Dictionary<String,CharacterMove>> FrameData = new Dictionary<String, Dictionary<String, CharacterMove>>();
-        public CharacterMoveService()
+        string FrameDataDirectory = "../../Data/FrameData";
+        public Dictionary<String, Dictionary<String,CharacterMoveData>> FrameData = new Dictionary<String, Dictionary<String, CharacterMoveData>>();
+        public FameDataService()
         {
-            foreach (string filePath in Directory.GetFiles(dataDirectory, "*.json"))
+            foreach (string filePath in Directory.GetFiles(FrameDataDirectory, "*.json"))
             {
                 string characterName = Path.GetFileNameWithoutExtension(filePath);
                 using(StreamReader r = new StreamReader(filePath))
                 {
-                    Dictionary<String,CharacterMove> characterData = new Dictionary<String, CharacterMove>();
+                    Dictionary<String,CharacterMoveData> characterData = new Dictionary<String, CharacterMoveData>();
                     string json = r.ReadToEnd();
-                    List<CharacterMove> moves = JsonConvert.DeserializeObject<List<CharacterMove>>(json);
-                    foreach (CharacterMove move in moves)
+                    List<CharacterMoveData> moves = JsonConvert.DeserializeObject<List<CharacterMoveData>>(json);
+                    foreach (CharacterMoveData move in moves)
                     {
                         characterData[move.move] = move;
                     }

@@ -62,7 +62,8 @@ namespace GBVS_FD_BOT
                 .AddSingleton<DiscordSocketClient>()
                 .AddSingleton<CommandService>()
                 .AddSingleton<CommandHandlingService>()
-                .AddSingleton<CharacterMoveService>()
+                .AddSingleton<MoveListService>()
+                .AddSingleton<FameDataService>()
                 .AddSingleton<HttpClient>()
                 .AddSingleton<PictureService>()
                 .BuildServiceProvider();

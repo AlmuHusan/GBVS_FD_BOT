@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace GBVS_FD_BOT.Modules
 {
-    public class CharacterMove
+    public class CharacterMoveData
     {
 
         [JsonPropertyName("move")]
