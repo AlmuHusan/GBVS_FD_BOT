@@ -24,16 +24,6 @@ namespace GBVS_FD_BOT.Modules
             { "katalina","Katalina" },
         };
 
-
-
-
-        string[] moveList = {
-            "c.L","c.M","c.H","f.L","f.M","f.H",
-            "2L","2M","2H","2U","U","214L","214M","214H","236L",
-            "236M","236H","623L","623L","623M","623H","M+H","L+U","236236H",
-            "236236U"
-        };
-
         [Command("cat")]
         public async Task CatAsync()
         {
@@ -64,7 +54,7 @@ namespace GBVS_FD_BOT.Modules
             if (charList.Keys.Contains(charName.ToLower()))
             {
                 var list = "";
-                foreach (var k in moveList)
+                foreach (var k in MoveListService.MoveData[charName.ToLower()])
                 {
                     list += k + ", ";
                 }
@@ -86,7 +76,7 @@ namespace GBVS_FD_BOT.Modules
             {
                 await ReplyAsync("This is not a valid character please try again.");
             }
-            else if (!moveList.Contains(move))
+            else if (!MoveListService.MoveData[charName.ToLower()].Contains(move))
             {
                 await ReplyAsync("This is not a valid move please try again.");
             }
