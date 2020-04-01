@@ -22,6 +22,7 @@ namespace GBVS_FD_BOT.Modules
             { "gran","Gran" },
             { "ferry","Ferry" },
             { "katalina","Katalina" },
+            {"metera","Metera" }
         };
 
         [Command("charlist")]
