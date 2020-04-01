@@ -12,7 +12,7 @@ namespace GBVS_FD_BOT.Modules
     public class PublicModule : ModuleBase<SocketCommandContext>
     {
         // Dependency Injection will fill this value in for us
-        public PictureService PictureService { get; set; }
+        public ImageService ImageService { get; set; }
         public FameDataService FrameDataService { get; set; }
 
         public MoveListService MoveListService { get; set; }
@@ -23,16 +23,6 @@ namespace GBVS_FD_BOT.Modules
             { "ferry","Ferry" },
             { "katalina","Katalina" },
         };
-
-        [Command("cat")]
-        public async Task CatAsync()
-        {
-            // Get a stream containing an image of a cat
-            var stream = await PictureService.GetCatPictureAsync();
-            // Streams must be seeked to their beginning before being uploaded!
-            stream.Seek(0, SeekOrigin.Begin);
-            await Context.Channel.SendFileAsync(stream, "cat.png");
-        }
 
         [Command("charlist")]
         public async Task CharListAsync()
@@ -59,7 +49,7 @@ namespace GBVS_FD_BOT.Modules
                     list += k + ", ";
                 }
                 var builder = new EmbedBuilder();
-                builder.WithTitle(charName + "'s movelist:");
+                builder.WithTitle(charList[charName] + "'s movelist:");
                 builder.Description = list;
                 await Context.Channel.SendMessageAsync("", false, builder.Build());
             }
@@ -85,14 +75,13 @@ namespace GBVS_FD_BOT.Modules
                 var builder = new EmbedBuilder();
                 var character = FrameDataService.FrameData[charList[charName]];
                 var characterMove = character[move];
-                builder.WithTitle("Gran: "+characterMove.move);
+                builder.WithTitle(charList[charName]+" "+characterMove.move);
                 builder.AddField("Damage", characterMove.damage, true);
                 builder.AddField("Guard", characterMove.guard, true);
                 builder.AddField("Startup", characterMove.startup, true);
                 builder.AddField("On Block", characterMove.onblock, true);
                 builder.AddField("On Hit", characterMove.onhit, true);
-                builder.WithThumbnailUrl("https://www.avatarys.com/var/resizes/Cool-Avatars/Cartoons-Avatars/Super-Mario-Avatar-500x500.jpg?m=1455129118");
-
+                builder.WithThumbnailUrl(ImageService.ImageData[charName]);
                 builder.WithColor(Color.Red);
                 await Context.Channel.SendMessageAsync("", false, builder.Build());
             }

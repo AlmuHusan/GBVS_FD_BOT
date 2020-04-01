@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <Folder Include="Data\MoveListData\" />
+    <Folder Include="Data\ImageData\" />
   </ItemGroup>
 
 </Project>

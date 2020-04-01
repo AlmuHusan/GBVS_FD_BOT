@@ -65,7 +65,7 @@ namespace GBVS_FD_BOT
                 .AddSingleton<MoveListService>()
                 .AddSingleton<FameDataService>()
                 .AddSingleton<HttpClient>()
-                .AddSingleton<PictureService>()
+                .AddSingleton<ImageService>()
                 .BuildServiceProvider();
         }
     }
