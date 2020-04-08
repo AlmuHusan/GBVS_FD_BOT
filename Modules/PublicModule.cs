@@ -24,7 +24,8 @@ namespace GBVS_FD_BOT.Modules
             { "katalina","Katalina" },
             {"metera","Metera" },
             {"lancelot","Lancelot" },
-            {"percival","Percival" }
+            {"percival","Percival" },
+            {"zeta","Zeta" }
         };
 
         [Command("charlist")]
