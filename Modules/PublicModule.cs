@@ -27,7 +27,8 @@ namespace GBVS_FD_BOT.Modules
             {"percival","Percival" },
             {"zeta","Zeta" },
             {"djeeta","Djeeta" },
-            {"soriz","Soriz" }
+            {"soriz","Soriz" },
+            {"lowain","Lowain" }
         };
 
         [Command("charlist")]
