@@ -28,7 +28,8 @@ namespace GBVS_FD_BOT.Modules
             {"zeta","Zeta" },
             {"djeeta","Djeeta" },
             {"soriz","Soriz" },
-            {"lowain","Lowain" }
+            {"lowain","Lowain" },
+            {"ladiva","Ladiva" }
         };
 
         [Command("charlist")]
