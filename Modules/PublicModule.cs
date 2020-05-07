@@ -46,6 +46,18 @@ namespace GBVS_FD_BOT.Modules
             await Context.Channel.SendMessageAsync("", false, builder.Build());
         }
 
+        [Command("help")]
+        public async Task Help()
+        {
+            var builder = new EmbedBuilder();
+            builder.WithTitle("List of available commands:");
+            builder.Description=
+                "**-charlist:** Shows a list of all the characters available\n"+
+                "**-movelist [charName]:** Shows a list of all the available moves based on the character inputed\n" +
+                "**-fd [charName] [move]:** Displays the frame data based on the character and move entered";
+                await Context.Channel.SendMessageAsync("", false, builder.Build());
+        }   
+
         [Command("movelist")]
         public async Task MoveListAsync(string charName)
         {

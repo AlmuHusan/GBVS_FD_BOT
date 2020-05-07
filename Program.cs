@@ -9,14 +9,6 @@ using GBVS_FD_BOT.Services;
 
 namespace GBVS_FD_BOT
 {
-    // This is a minimal example of using Discord.Net's command
-    // framework - by no means does it show everything the framework
-    // is capable of.
-    //
-    // You can find samples of using the command framework:
-    // - Here, under the 02_commands_framework sample
-    // - https://github.com/foxbot/DiscordBotBase - a bare-bones bot template
-    // - https://github.com/foxbot/patek - a more feature-filled bot, utilizing more aspects of the library
     class Program
     {
         // There is no need to implement IDisposable like before as we are
@@ -41,7 +33,7 @@ namespace GBVS_FD_BOT
                 // We can read from the environment variable to avoid hardcoding.
                 await client.LoginAsync(TokenType.Bot, Environment.GetEnvironmentVariable("token"));
                 await client.StartAsync();
-
+                await client.SetGameAsync(" -help");
                 // Here we initialize the logic required to register our commands.
                 await services.GetRequiredService<CommandHandlingService>().InitializeAsync();
 
