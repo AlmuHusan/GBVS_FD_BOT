@@ -29,13 +29,14 @@ namespace GBVS_FD_BOT.Modules
             {"djeeta","Djeeta" },
             {"soriz","Soriz" },
             {"lowain","Lowain" },
-            {"ladiva","Ladiva" }
+            {"ladiva","Ladiva" },
+            {"narmaya","Narmaya" },
         };
 
         [Command("charlist")]
         public async Task CharListAsync()
         {
-            var list = "(Value): (Character Name)\n";
+            var list = "(Input Value): (Character Name)\n";
             foreach (var key in charList.Keys)
             {
                 list += key + ": " + charList[key]+"\n";
