@@ -256,7 +256,7 @@
 		"invul": "-"
 	},
 	{
-		"move": "l+u",
+		"move": "L+U",
 		"damage": "1500",
 		"guard": "Throw",
 		"startup": "7",
@@ -272,7 +272,7 @@
 		"invul": "-"
 	},
 	{
-		"move": "j.l+u",
+		"move": "j.L+U",
 		"damage": "1500",
 		"guard": "Airthrow",
 		"startup": "5",
@@ -288,7 +288,7 @@
 		"invul": "-"
 	},
 	{
-		"move": "m+h",
+		"move": "M+H",
 		"damage": "1000",
 		"guard": "High",
 		"startup": "-",
