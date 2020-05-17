@@ -29,12 +29,6 @@ namespace GBVS_FD_BOT.Services
                 }
                 
             }
-            //foreach (var item in FrameData.Keys)
-            //{
-            //    var character = FrameData[item];
-            //    Console.WriteLine(character["5A"].startup);
-            //}
-
         }
     }
 }
