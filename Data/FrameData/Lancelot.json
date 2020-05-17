@@ -1,6 +1,6 @@
 [
 	{
-		"move": "c.L",
+		"move": "5L",
 		"damage": "350",
 		"guard": "Mid",
 		"startup": "5",
@@ -73,22 +73,6 @@
 		"onblock": "-4",
 		"onhit": "0",
 		"level": "3",
-		"blockstun": "-",
-		"hitstun": "-",
-		"untech": "-",
-		"hitstop": "-",
-		"invul": "-"
-	},
-	{
-		"move": "f.L",
-		"damage": "350",
-		"guard": "Mid",
-		"startup": "5",
-		"active": "2",
-		"recovery": "7",
-		"onblock": "+2",
-		"onhit": "+6",
-		"level": "0",
 		"blockstun": "-",
 		"hitstun": "-",
 		"untech": "-",
