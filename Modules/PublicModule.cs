@@ -66,10 +66,10 @@ namespace GBVS_FD_BOT.Modules
         [Command("movelist")]
         public async Task MoveListAsync(string charName)
         {
-            if (charList.Keys.Contains(charName.ToLower()))
+            if (charList.Keys.Contains(charName))
             {
                 var list = "";
-                foreach (var k in MoveListService.MoveData[charName.ToLower()])
+                foreach (var k in MoveListService.MoveData[charName])
                 {
                     list += k + ", ";
                 }
@@ -87,11 +87,12 @@ namespace GBVS_FD_BOT.Modules
         [Command("fd")]
         public async Task FrameDataAsync(string charName, string move)
         {
+
             if (!charList.ContainsKey(charName))
             {
                 await ReplyAsync("This is not a valid character please try again.");
             }
-            else if (!MoveListService.MoveData[charName.ToLower()].Contains(move))
+            else if (!MoveListService.MoveData[charName].Contains(move))
             {
                 await ReplyAsync("This is not a valid move please try again.");
             }
@@ -104,6 +105,7 @@ namespace GBVS_FD_BOT.Modules
                 builder.AddField("Damage", characterMove.damage, true);
                 builder.AddField("Guard", characterMove.guard, true);
                 builder.AddField("Startup", characterMove.startup, true);
+                builder.AddField("Recovery", characterMove.recovery, true);
                 builder.AddField("On Block", characterMove.onblock, true);
                 builder.AddField("On Hit", characterMove.onhit, true);
                 builder.WithThumbnailUrl(ImageService.ImageData[charName]);

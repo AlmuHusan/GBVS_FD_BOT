@@ -544,7 +544,7 @@
 		"invul": "-"
 	},
 	{
-		"move": "214L",
+		"move": "214L[k]",
 		"damage": "1100",
 		"guard": "All",
 		"startup": "32",
