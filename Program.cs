@@ -31,7 +31,7 @@ namespace GBVS_FD_BOT
 
                 // Tokens should be considered secret data and never hard-coded.
                 // We can read from the environment variable to avoid hardcoding.
-                await client.LoginAsync(TokenType.Bot, Environment.GetEnvironmentVariable("token"));
+                await client.LoginAsync(TokenType.Bot, Environment.GetEnvironmentVariable("gbvs_bot_token"));
                 await client.StartAsync();
                 await client.SetGameAsync(" -help");
                 // Here we initialize the logic required to register our commands.

@@ -9,7 +9,7 @@ namespace GBVS_FD_BOT.Services
 {
     public class FameDataService
     {
-        string FrameDataDirectory = "../../Data/FrameData";
+        string FrameDataDirectory = "./Data/FrameData";
         public Dictionary<String, Dictionary<String,CharacterMoveData>> FrameData = new Dictionary<String, Dictionary<String, CharacterMoveData>>();
         public FameDataService()
         {
