@@ -23,7 +23,7 @@ namespace GBVS_FD_BOT.Services
                     List<CharacterMoveData> moves = JsonConvert.DeserializeObject<List<CharacterMoveData>>(json);
                     foreach (CharacterMoveData move in moves)
                     {
-                        characterData[move.move] = move;
+                        characterData[move.move.ToUpper()] = move;
                     }
                     FrameData[characterName] = characterData;
                 }

@@ -33,7 +33,7 @@ namespace GBVS_FD_BOT
                 // We can read from the environment variable to avoid hardcoding.
                 await client.LoginAsync(TokenType.Bot, Environment.GetEnvironmentVariable("gbvs_bot_token"));
                 await client.StartAsync();
-                await client.SetGameAsync(" ~help");
+                await client.SetGameAsync(" -help");
                 // Here we initialize the logic required to register our commands.
                 await services.GetRequiredService<CommandHandlingService>().InitializeAsync();
 

@@ -19,31 +19,31 @@ namespace GBVS_FD_BOT.Modules
 
         Dictionary<string, string> charList = new Dictionary<string, string>(){
 
-            { "gran","Gran" },
-            { "ferry","Ferry" },
-            { "katalina","Katalina" },
-            {"metera","Metera" },
-            {"lancelot","Lancelot" },
-            {"percival","Percival" },
-            {"zeta","Zeta" },
-            {"djeeta","Djeeta" },
-            {"soriz","Soriz" },
-            {"lowain","Lowain" },
-            {"ladiva","Ladiva" },
-            {"narmaya","Narmaya" },
-            {"zooey","Zooey" },
-            {"vaseraga","Vaseraga" },
-            {"charlotta","Charlotta" },
-            {"beelzebub","Beelzebub" }
+            { "GRAN","Gran" },
+            { "FERRY","Ferry" },
+            { "KATALINA","Katalina" },
+            {"METERA","Metera" },
+            {"LANCELOT","Lancelot" },
+            {"PERCIVAL","Percival" },
+            {"ZETA","Zeta" },
+            {"DJEETA","Djeeta" },
+            {"SORIZ","Soriz" },
+            {"LOWAIN","Lowain" },
+            {"LADIVA","Ladiva" },
+            {"NARMAYA","Narmaya" },
+            {"ZOOEY","Zooey" },
+            {"VASERAGA","Vaseraga" },
+            {"CHARLOTTA","Charlotta" },
+            {"BEELZEBUB","Beelzebub" }
         };
 
         [Command("charlist")]
         public async Task CharListAsync()
         {
-            var list = "(Input Value): (Character Name)\n";
+            var list = "";
             foreach (var key in charList.Keys)
             {
-                list += key + ": " + charList[key]+"\n";
+                list += charList[key]+", ";
             }
             var builder = new EmbedBuilder();
             builder.WithTitle("List of available characters");
@@ -66,15 +66,15 @@ namespace GBVS_FD_BOT.Modules
         [Command("movelist")]
         public async Task MoveListAsync(string charName)
         {
-            if (charList.Keys.Contains(charName))
+            if (charList.Keys.Contains(charName.ToUpper()))
             {
                 var list = "";
-                foreach (var k in MoveListService.MoveData[charName])
+                foreach (var k in MoveListService.MoveData[charName.ToUpper()])
                 {
                     list += k + ", ";
                 }
                 var builder = new EmbedBuilder();
-                builder.WithTitle(charList[charName] + "'s movelist:");
+                builder.WithTitle(charList[charName.ToUpper()] + "'s movelist:");
                 builder.Description = list;
                 await Context.Channel.SendMessageAsync("", false, builder.Build());
             }
@@ -88,27 +88,27 @@ namespace GBVS_FD_BOT.Modules
         public async Task FrameDataAsync(string charName, string move)
         {
 
-            if (!charList.ContainsKey(charName))
+            if (!charList.ContainsKey(charName.ToUpper()))
             {
                 await ReplyAsync("This is not a valid character please try again.");
             }
-            else if (!MoveListService.MoveData[charName].Contains(move))
+            else if (!MoveListService.MoveData[charName.ToUpper()].Contains(move.ToUpper()))
             {
                 await ReplyAsync("This is not a valid move please try again.");
             }
             else
             {
                 var builder = new EmbedBuilder();
-                var character = FrameDataService.FrameData[charList[charName]];
-                var characterMove = character[move];
-                builder.WithTitle(charList[charName]+" "+characterMove.move);
+                var character = FrameDataService.FrameData[charName.ToUpper()];
+                var characterMove = character[move.ToUpper()];
+                builder.WithTitle(charList[charName.ToUpper()]+" "+characterMove.move);
                 builder.AddField("Damage", characterMove.damage, true);
                 builder.AddField("Guard", characterMove.guard, true);
                 builder.AddField("Startup", characterMove.startup, true);
                 builder.AddField("Recovery", characterMove.recovery, true);
                 builder.AddField("On Block", characterMove.onblock, true);
                 builder.AddField("On Hit", characterMove.onhit, true);
-                builder.WithThumbnailUrl(ImageService.ImageData[charName]);
+                builder.WithThumbnailUrl(ImageService.ImageData[charName.ToUpper()]);
                 builder.WithColor(Color.Red);
                 await Context.Channel.SendMessageAsync("", false, builder.Build());
             }
