@@ -7,7 +7,7 @@ namespace GBVS_FD_BOT.Services
 {
     public class ImageService
     {
-        string MoveListDirectory = "../../Data/ImageData/ImageData.json";
+        string MoveListDirectory = "./Data/ImageData/ImageData.json";
         public Dictionary<String, String> ImageData;
         public ImageService()
         {

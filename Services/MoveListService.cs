@@ -8,7 +8,7 @@ namespace GBVS_FD_BOT.Services
 {
     public class MoveListService
     {
-        string MoveListDirectory = "../../Data/MoveListData/CharMoveList.json";
+        string MoveListDirectory = "./Data/MoveListData/CharMoveList.json";
         public Dictionary<String, List<String>> MoveData;
         public MoveListService()
         {
