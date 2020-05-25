@@ -36,6 +36,7 @@ namespace GBVS_FD_BOT.Services
         public async Task MessageReceivedAsync(SocketMessage rawMessage)
         {
             // Ignore system messages, or messages from other bots
+            if(rawMessage.Channel is ISocketPrivateChannel) { return; }
             if (!(rawMessage is SocketUserMessage message)) return;
             if (message.Source != MessageSource.User) return;
 
