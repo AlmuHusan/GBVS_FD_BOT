@@ -35,7 +35,8 @@ namespace GBVS_FD_BOT.Modules
             {"VASERAGA","Vaseraga" },
             {"CHARLOTTA","Charlotta" },
             {"BEELZEBUB","Beelzebub" },
-            {"BELIAL","Belial" }
+            {"BELIAL","Belial" },
+            {"CAGLIOSTRO","Cagliostro" }
         };
 
         [Command("charlist")]
