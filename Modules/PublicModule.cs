@@ -37,7 +37,8 @@ namespace GBVS_FD_BOT.Modules
             {"BEELZEBUB","Beelzebub" },
             {"BELIAL","Belial" },
             {"CAGLIOSTRO","Cagliostro" },
-            {"YUEL","Yuel" }
+            {"YUEL","Yuel" },
+            {"ANRE","Anre" }
         };
 
         [Command("charlist")]
